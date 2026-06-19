@@ -1,0 +1,53 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  lang: Lang;
+  site: CollectionEntry<'site'>['data'];
+  altLangUrl: string;
+}
+
+const { lang, site, altLangUrl } = Astro.props;
+const t = useTranslations(lang);
+const base = `/${lang}/`;
+const currentPath = Astro.url.pathname;
+
+// The nav reuses the section labels, so they stay editable in the CMS too.
+const navItems = [
+  { href: `${base}#story`, label: site.story.eyebrow },
+  { href: `${base}#projects`, label: site.projects.eyebrow },
+  { href: `${base}#courses`, label: site.courses.eyebrow },
+  { href: `${base}#blog`, label: site.blog.eyebrow },
+  { href: `${base}#contact`, label: site.contact.eyebrow },
+];
+---
+
+<header>
+  <nav class="nav">
+    <a href={base} class="logo">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C7 7 4 11 4 15a8 8 0 0016 0c0-4-3-8-8-13zm0 4c3 4 5 6.5 5 9a5 5 0 01-5 5z" />
+      </svg>
+      Arocha Academy
+    </a>
+
+    <div class="nav-links">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
+
+    <div class="lang-switch" role="group" aria-label={t('lang.label')}>
+      <a
+        class:list={['lang-btn', { active: lang === 'en' }]}
+        href={lang === 'en' ? currentPath : altLangUrl}
+        hreflang="en">EN</a
+      >
+      <a
+        class:list={['lang-btn', { active: lang === 'es' }]}
+        href={lang === 'es' ? currentPath : altLangUrl}
+        hreflang="es">ES</a
+      >
+    </div>
+  </nav>
+</header>

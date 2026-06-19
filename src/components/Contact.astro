@@ -1,0 +1,59 @@
+---
+interface Props {
+  contact: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    email: string;
+    instagram?: string;
+    facebook?: string;
+    linkedin?: string;
+  };
+}
+
+const { contact } = Astro.props;
+const hasSocials = !!(contact.instagram || contact.facebook || contact.linkedin);
+---
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      {contact.eyebrow && <span class="eyebrow">{contact.eyebrow}</span>}
+      {contact.heading && <h2>{contact.heading}</h2>}
+      <div class="divider"></div>
+    </div>
+
+    {contact.lead && <p class="lead">{contact.lead}</p>}
+    {contact.email && <a class="email-btn" href={`mailto:${contact.email}`}>{contact.email}</a>}
+
+    {
+      hasSocials && (
+        <div class="socials">
+          {contact.instagram && (
+            <a href={contact.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          )}
+          {contact.facebook && (
+            <a href={contact.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z" />
+              </svg>
+            </a>
+          )}
+          {contact.linkedin && (
+            <a href={contact.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.98 3.5a2.5 2.5 0 11-.02 5.01A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.4 8.75 21 11 21 14v7h-4v-6.2c0-1.48-.03-3.39-2.06-3.39-2.07 0-2.39 1.61-2.39 3.28V21H9z" />
+              </svg>
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+</section>

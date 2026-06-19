@@ -1,0 +1,69 @@
+{
+  "seo": {
+    "title": "Arocha Academy — Mentoría y Coaching para Diseñar y Elevar Tu Vida",
+    "description": "Mentoría y coaching con Maru Arocha para ayudarte a diseñar y elevar tu vida."
+  },
+  "hero": {
+    "eyebrow": "Bienvenida a",
+    "title": "Arocha Academy",
+    "tagline": "Mentoría y Coaching para Diseñar y Elevar Tu Vida",
+    "cta": "Comienza Tu Camino"
+  },
+  "story": {
+    "eyebrow": "Mi Historia",
+    "heading": "Conóceme",
+    "portraitImage": "",
+    "portraitBadge": "Coach de Vida y Mentora",
+    "signature": "Maru Arocha",
+    "body": "Soy María Eugenia García Villalobos Haddad, orgullosamente mexicana con raíces libanesas que han marcado profundamente mi vida. Agradezco haber llegado a este mundo rodeada de amor y compañía y, aun así, mi vida —como la de todos— también ha estado llena de retos y obstáculos.\nCuando migré a otro país, adopté el apellido Arocha como mi identidad, pues es el primer apellido de mis hijos. Durante más de 30 años se me ha conocido como Maru Arocha: madre de tres jóvenes adultos, maestra de español y una mujer comprometida con el servicio social y con ayudar a los demás.\nSiempre me han apasionado las relaciones humanas y la comunicación. Mi curiosidad por comprenderme mejor me llevó a tomar cursos y talleres que contribuyeron de forma positiva a mi crecimiento personal y profesional, especialmente en mi trabajo con niños.\nLa muerte de mi padre, y todo lo que vino después, me llevó por un camino para comprender las dinámicas familiares, las historias que nos contamos a nosotros mismos y los comportamientos conscientes e inconscientes que dan forma a nuestra vida.\nArocha Academy nació como un portal de apertura y visión, con la responsabilidad y el propósito de ofrecer mentoría y coaching para ayudar a diseñar y elevar nuestra vida."
+  },
+  "projects": {
+    "eyebrow": "Proyectos",
+    "heading": "Maneras de trabajar juntas",
+    "items": [
+      {
+        "kicker": "Coaching de Grupo",
+        "title": "Eleva Tu Vida",
+        "body": "Muchas veces, lo único que realmente necesitamos es un espacio seguro para ser vistos y escuchados. Una experiencia de perspectiva y crecimiento que nos permite conectar con nosotros mismos y con los demás. Tu presencia importa y, hoy más que nunca, el mundo necesita más empatía y conexión humana. Nuestras historias importan.",
+        "pills": ["4–6 participantes", "Mensual", "120 min", "Presencial"]
+      },
+      {
+        "kicker": "Coaching Individual",
+        "title": "Diseña Tu Vida",
+        "body": "Así como una casa muchas veces necesita cambios para adaptarse a las distintas etapas de nuestra vida —la llegada de un bebé, una familia que crece, un nido vacío, nuevos proyectos y muchas otras transiciones—, nuestro ser y nuestra esencia también necesitan rediseñarse.\nEs importante hacer una pausa, observarnos y reconocer que estamos atravesando un cambio. Mirar hacia adentro, renovar nuestros espacios interiores, abrazar nuevas perspectivas y permitirnos evolucionar.\nDesde ese lugar, comenzamos a rediseñar tu vida. Porque muchas veces no se trata de transformarlo todo, sino de descubrir una nueva perspectiva y hacer algunos pequeños cambios que pueden liberar un potencial enorme…\nRecuerda: siempre puedes rediseñarte.",
+        "pills": ["Individual", "45–90 min", "En línea"]
+      }
+    ]
+  },
+  "courses": {
+    "eyebrow": "Cursos",
+    "heading": "Aprende y crece",
+    "items": [
+      {
+        "kicker": "Curso",
+        "title": "Estableciendo Tus Límites",
+        "body": "Un curso amoroso para aprender a honrarte estableciendo límites sanos y cariñosos, para proteger tu energía, profundizar tus relaciones y decir un sí pleno a lo que de verdad importa."
+      }
+    ],
+    "showComingSoon": true,
+    "comingSoonTitle": "Próximamente más",
+    "comingSoonBody": "Nuevos cursos en camino."
+  },
+  "blog": {
+    "eyebrow": "Blog y Charlas",
+    "heading": "Palabras y encuentros",
+    "readMore": "Leer más"
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "heading": "Conectemos",
+    "lead": "¿Te gustaría diseñar y elevar tu vida? Me encantaría saber de ti. Escríbeme y comencemos.",
+    "email": "lifedesigner@arochaacademy.com",
+    "instagram": "",
+    "facebook": "",
+    "linkedin": ""
+  },
+  "footer": {
+    "tagline": "Hecho con el corazón, para ayudarte a diseñar tu vida."
+  }
+}

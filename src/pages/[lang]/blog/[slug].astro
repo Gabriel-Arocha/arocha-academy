@@ -1,0 +1,77 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import type { Lang } from '../../../i18n/ui';
+import {
+  useTranslations,
+  formatDate,
+  otherLang,
+  langFromBlogId,
+  slugFromBlogId,
+} from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { lang: langFromBlogId(post.id), slug: slugFromBlogId(post.id) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { lang } = Astro.params as { lang: Lang; slug: string };
+const t = useTranslations(lang);
+const entry = await getEntry('site', lang);
+const site = entry!.data;
+const { Content } = await render(post);
+
+// Find the translated version (same translationKey, other language) so the
+// language toggle jumps to the right post instead of a dead end.
+const altCode = otherLang(lang);
+const allPosts = await getCollection('blog');
+const altPost = post.data.translationKey
+  ? allPosts.find(
+      (p) =>
+        langFromBlogId(p.id) === altCode &&
+        p.data.translationKey === post.data.translationKey,
+    )
+  : undefined;
+const altLangUrl = altPost ? `/${altCode}/blog/${slugFromBlogId(altPost.id)}` : `/${altCode}/blog`;
+
+const isTalk = post.data.tag === 'talk';
+const tagLabel = isTalk ? t('tag.talk') : t('tag.article');
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  altLangUrl={altLangUrl}
+  title={`${post.data.title} — Arocha Academy`}
+  description={post.data.summary || site.seo.description}
+>
+  <article class="post">
+    <div class="wrap">
+      <div class="post-header">
+        <span class:list={['tag', { talk: isTalk }]}>{tagLabel}</span>
+        <h1>{post.data.title}</h1>
+        <div class="blog-meta">{t('blog.published')} · {formatDate(post.data.date, lang)}</div>
+      </div>
+
+      {
+        post.data.coverImage && (
+          <div class="post-cover">
+            <img src={post.data.coverImage} alt={post.data.title} />
+          </div>
+        )
+      }
+
+      <div class="post-body">
+        <Content />
+      </div>
+
+      <div class="post-foot">
+        <a class="back-link" href={`/${lang}/blog`}>{t('blog.back')}</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

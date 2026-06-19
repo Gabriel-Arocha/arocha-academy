@@ -1,0 +1,71 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import type { Lang } from '../../../i18n/ui';
+import {
+  useTranslations,
+  formatDate,
+  otherLang,
+  langFromBlogId,
+  slugFromBlogId,
+} from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+const entry = await getEntry('site', lang);
+const site = entry!.data;
+
+const posts = (await getCollection('blog'))
+  .filter((post) => langFromBlogId(post.id) === lang)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const altLangUrl = `/${otherLang(lang)}/blog`;
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  altLangUrl={altLangUrl}
+  title={`${site.blog.heading} — Arocha Academy`}
+  description={site.seo.description}
+>
+  <section class="page-hero">
+    {site.blog.eyebrow && <span class="eyebrow">{site.blog.eyebrow}</span>}
+    <h1>{site.blog.heading}</h1>
+  </section>
+
+  <section class="block" style="padding-top:24px">
+    <div class="wrap">
+      {
+        posts.length > 0 ? (
+          <div class="blog-list">
+            {posts.map((post) => {
+              const slug = slugFromBlogId(post.id);
+              const isTalk = post.data.tag === 'talk';
+              const tagLabel = isTalk ? t('tag.talk') : t('tag.article');
+              return (
+                <a class="blog-item" href={`/${lang}/blog/${slug}`}>
+                  <span class:list={['tag', { talk: isTalk }]}>{tagLabel}</span>
+                  <div class="blog-item-main">
+                    <h3>{post.data.title}</h3>
+                    {post.data.summary && <p>{post.data.summary}</p>}
+                    <div class="blog-meta">{formatDate(post.data.date, lang)}</div>
+                  </div>
+                  <span class="arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        ) : (
+          <p style="text-align:center;color:var(--ink-soft)">{t('blog.empty')}</p>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

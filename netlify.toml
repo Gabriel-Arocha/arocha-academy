@@ -1,0 +1,15 @@
+# Netlify build settings for Arocha Academy
+# (You normally don't need to touch this file.)
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Friendly URLs and a small cache for uploaded images.
+[[headers]]
+  for = "/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

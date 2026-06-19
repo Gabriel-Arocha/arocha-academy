@@ -1,0 +1,43 @@
+---
+import { toParagraphs } from '../i18n/utils';
+
+interface Props {
+  story: {
+    eyebrow: string;
+    heading: string;
+    portraitImage?: string;
+    portraitBadge: string;
+    signature?: string;
+    body: string;
+  };
+}
+
+const { story } = Astro.props;
+const paragraphs = toParagraphs(story.body);
+const name = story.signature || 'Maru Arocha';
+---
+
+<section class="block" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="portrait">
+        {
+          story.portraitImage ? (
+            <img class="photo" src={story.portraitImage} alt={name} />
+          ) : (
+            <div class="frame">
+              <span class="mono">MA</span>
+              <small>{name}</small>
+            </div>
+          )
+        }
+        {story.portraitBadge && <span class="badge">{story.portraitBadge}</span>}
+      </div>
+      <div class="story-text">
+        {story.eyebrow && <span class="eyebrow">{story.eyebrow}</span>}
+        {story.heading && <h2>{story.heading}</h2>}
+        {paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </div>
+</section>

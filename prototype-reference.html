@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arocha Academy — Coaching & Mentorship to Design and Elevate Your Life</title>
+  <meta name="description" content="Arocha Academy — Coaching & mentorship with Maru Arocha to help you design and elevate your life.">
+
+  <!-- Fonts (these make the site look elegant; they load automatically) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================================================
+       COLOR THEME  —  change these to give the whole site a new feel
+       =========================================================== */
+    :root {
+      --cream:     #FBF6EF;
+      --cream-2:   #F3E9DC;
+      --ink:       #3B2D25;
+      --ink-soft:  #6E5C50;
+      --clay:      #C2714F;
+      --clay-dark: #A85B3C;
+      --sage:      #8FA081;
+      --gold:      #C6A15B;
+      --white:     #FFFFFF;
+      --shadow:    rgba(59, 45, 37, 0.12);
+
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:  'Nunito Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+
+    /* ===========================  BASICS  =========================== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    section { scroll-margin-top: 92px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Language toggle: hide the inactive language */
+    body.lang-en [data-lang="es"],
+    body.lang-es [data-lang="en"] { display: none !important; }
+
+    /* ===========================  HEADER  =========================== */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251, 246, 239, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(59, 45, 37, 0.08);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 16px 24px; max-width: 1080px; margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif);
+            font-size: 1.4rem; font-weight: 700; color: var(--ink); letter-spacing: .3px; }
+    .logo svg { width: 26px; height: 26px; }
+    .nav-links { display: flex; gap: 26px; flex-wrap: wrap; }
+    .nav-links a { font-size: .95rem; font-weight: 600; color: var(--ink-soft);
+                   transition: color .2s; position: relative; }
+    .nav-links a:hover { color: var(--clay); }
+    .lang-switch { display: flex; align-items: center; border: 1px solid rgba(59,45,37,.18);
+                   border-radius: 999px; overflow: hidden; }
+    .lang-btn { font-family: var(--sans); font-weight: 700; font-size: .82rem;
+                padding: 7px 14px; background: transparent; border: none; cursor: pointer;
+                color: var(--ink-soft); transition: all .2s; letter-spacing: .5px; }
+    .lang-btn.active { background: var(--clay); color: var(--white); }
+
+    /* ===========================  HERO  =========================== */
+    .hero {
+      position: relative; overflow: hidden; text-align: center;
+      padding: 110px 24px 120px;
+      background:
+        radial-gradient(60% 80% at 80% 0%, rgba(143,160,129,.20), transparent 60%),
+        radial-gradient(70% 90% at 0% 100%, rgba(194,113,79,.18), transparent 55%),
+        linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    }
+    .hero .leaf { position: absolute; opacity: .18; color: var(--sage); }
+    .hero .leaf.one { top: 40px; left: -10px; width: 150px; transform: rotate(-18deg); }
+    .hero .leaf.two { bottom: 20px; right: -10px; width: 180px; color: var(--clay);
+                      opacity: .14; transform: rotate(160deg); }
+    .eyebrow { display: inline-block; text-transform: uppercase; letter-spacing: 3px;
+               font-size: .78rem; font-weight: 700; color: var(--clay); margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); color: var(--ink); margin-bottom: 8px; }
+    .hero .tagline { font-family: var(--serif); font-style: italic;
+                     font-size: clamp(1.15rem, 2.4vw, 1.55rem); color: var(--ink-soft);
+                     max-width: 720px; margin: 0 auto 34px; }
+    .btn {
+      display: inline-block; font-family: var(--sans); font-weight: 700; font-size: 1rem;
+      padding: 15px 34px; border-radius: 999px; cursor: pointer; border: none;
+      background: var(--clay); color: var(--white); transition: all .25s;
+      box-shadow: 0 10px 24px rgba(194,113,79,.35);
+    }
+    .btn:hover { background: var(--clay-dark); transform: translateY(-2px);
+                 box-shadow: 0 14px 30px rgba(194,113,79,.45); }
+
+    /* ===========================  SECTIONS  =========================== */
+    section.block { padding: 86px 0; }
+    section.block.alt { background: var(--cream-2); }
+    .section-head { text-align: center; margin-bottom: 50px; }
+    .section-head h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); color: var(--ink); margin-top: 6px; }
+    .divider { width: 64px; height: 2px; background: var(--gold); margin: 18px auto 0;
+               position: relative; }
+    .divider::after { content: "❧"; position: absolute; top: -15px; left: 50%;
+                      transform: translateX(-50%); color: var(--gold); font-size: 1.1rem;
+                      background: inherit; }
+
+    /* ===========================  MY STORY  =========================== */
+    .story-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px;
+                  align-items: center; }
+    .portrait { position: relative; }
+    .portrait .frame {
+      aspect-ratio: 4/5; border-radius: 18px; overflow: hidden;
+      background: linear-gradient(150deg, var(--sage), var(--clay));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--white); box-shadow: 0 18px 40px var(--shadow);
+    }
+    .portrait .frame .mono { font-family: var(--serif); font-size: 4rem; font-weight: 700;
+                             letter-spacing: 2px; }
+    .portrait .frame small { opacity: .9; letter-spacing: 2px; text-transform: uppercase;
+                             font-size: .72rem; margin-top: 8px; }
+    .portrait .badge { position: absolute; bottom: -16px; right: -10px; background: var(--white);
+                       padding: 10px 18px; border-radius: 12px; box-shadow: 0 10px 24px var(--shadow);
+                       font-family: var(--serif); font-style: italic; color: var(--clay); }
+    .story-text p { color: var(--ink-soft); margin-bottom: 16px; font-size: 1.06rem; }
+    .story-text h2 { margin-bottom: 18px; }
+
+    /* ===========================  CARDS (projects/courses)  =========================== */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .card {
+      background: var(--white); border-radius: 18px; padding: 34px 32px;
+      box-shadow: 0 12px 30px var(--shadow); position: relative; overflow: hidden;
+      border: 1px solid rgba(59,45,37,.05); transition: transform .25s, box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 42px var(--shadow); }
+    .card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+                    background: linear-gradient(90deg, var(--clay), var(--gold)); }
+    .card .kicker { text-transform: uppercase; letter-spacing: 2px; font-size: .74rem;
+                    font-weight: 700; color: var(--sage); }
+    .card h3 { font-size: 1.6rem; margin: 8px 0 14px; color: var(--ink); }
+    .card p { color: var(--ink-soft); margin-bottom: 18px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { background: var(--cream-2); color: var(--ink-soft); font-size: .85rem;
+            font-weight: 600; padding: 7px 14px; border-radius: 999px; }
+    .card.soon { background: transparent; border: 2px dashed rgba(59,45,37,.18);
+                 box-shadow: none; display: flex; flex-direction: column; justify-content: center;
+                 align-items: center; text-align: center; color: var(--ink-soft); }
+    .card.soon::before { display: none; }
+    .card.soon h3 { color: var(--ink-soft); }
+
+    /* ===========================  BLOG  =========================== */
+    .blog-list { display: flex; flex-direction: column; gap: 18px; max-width: 760px; margin: 0 auto; }
+    .blog-item {
+      display: flex; align-items: center; gap: 22px; background: var(--white);
+      border-radius: 16px; padding: 22px 26px; box-shadow: 0 10px 26px var(--shadow);
+      transition: transform .2s; border: 1px solid rgba(59,45,37,.05);
+    }
+    .blog-item:hover { transform: translateX(4px); }
+    .tag { flex-shrink: 0; font-size: .72rem; font-weight: 700; text-transform: uppercase;
+           letter-spacing: 1px; padding: 6px 13px; border-radius: 999px;
+           background: var(--sage); color: var(--white); }
+    .tag.talk { background: var(--gold); }
+    .blog-item h3 { font-size: 1.25rem; color: var(--ink); }
+    .blog-item .arrow { margin-left: auto; color: var(--clay); font-size: 1.4rem; flex-shrink: 0; }
+
+    /* ===========================  CONTACT  =========================== */
+    .contact { text-align: center; }
+    .contact p.lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 580px;
+                      margin: 0 auto 28px; }
+    .contact .email-btn { font-family: var(--serif); font-size: 1.35rem; color: var(--clay);
+                          border-bottom: 2px solid var(--gold); padding-bottom: 4px;
+                          transition: color .2s; }
+    .contact .email-btn:hover { color: var(--clay-dark); }
+    .socials { display: flex; gap: 16px; justify-content: center; margin-top: 30px; }
+    .socials a { width: 46px; height: 46px; border-radius: 50%; background: var(--white);
+                 display: flex; align-items: center; justify-content: center;
+                 box-shadow: 0 8px 20px var(--shadow); color: var(--clay); transition: all .2s; }
+    .socials a:hover { background: var(--clay); color: var(--white); transform: translateY(-3px); }
+    .socials svg { width: 20px; height: 20px; }
+
+    /* ===========================  FOOTER  =========================== */
+    footer { background: var(--ink); color: var(--cream); text-align: center; padding: 44px 24px; }
+    footer .logo { color: var(--cream); justify-content: center; margin-bottom: 10px; }
+    footer .tagline { font-family: var(--serif); font-style: italic; opacity: .85;
+                      margin-bottom: 14px; }
+    footer small { opacity: .6; letter-spacing: .5px; }
+
+    /* ===========================  RESPONSIVE  =========================== */
+    @media (max-width: 760px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .nav { justify-content: center; }
+      .nav-links { gap: 16px; justify-content: center; width: 100%; order: 3; }
+      .blog-item { flex-wrap: wrap; gap: 12px; }
+      .blog-item .arrow { display: none; }
+    }
+  </style>
+</head>
+
+<body class="lang-en">
+
+  <!-- ===========================  HEADER  =========================== -->
+  <header>
+    <nav class="nav">
+      <a href="#top" class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 7 4 11 4 15a8 8 0 0016 0c0-4-3-8-8-13zm0 4c3 4 5 6.5 5 9a5 5 0 01-5 5z"/></svg>
+        Arocha Academy
+      </a>
+      <div class="nav-links">
+        <a href="#story"><span data-lang="en">My Story</span><span data-lang="es">Mi Historia</span></a>
+        <a href="#projects"><span data-lang="en">Projects</span><span data-lang="es">Proyectos</span></a>
+        <a href="#courses"><span data-lang="en">Courses</span><span data-lang="es">Cursos</span></a>
+        <a href="#blog"><span data-lang="en">Blog &amp; Talks</span><span data-lang="es">Blog y Charlas</span></a>
+        <a href="#contact"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" data-set-lang="en">EN</button>
+        <button class="lang-btn" data-set-lang="es">ES</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===========================  HERO  =========================== -->
+  <section class="hero" id="top">
+    <svg class="leaf one" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 7 4 11 4 15a8 8 0 0016 0c0-4-3-8-8-13z"/></svg>
+    <svg class="leaf two" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 7 4 11 4 15a8 8 0 0016 0c0-4-3-8-8-13z"/></svg>
+    <div class="wrap">
+      <span class="eyebrow"><span data-lang="en">Welcome to</span><span data-lang="es">Bienvenida a</span></span>
+      <h1>Arocha Academy</h1>
+      <p class="tagline">
+        <span data-lang="en">Coaching &amp; Mentorship to Design and Elevate Your Life</span>
+        <span data-lang="es">Mentoría y Coaching para Diseñar y Elevar Tu Vida</span>
+      </p>
+      <a href="#contact" class="btn">
+        <span data-lang="en">Begin Your Journey</span><span data-lang="es">Comienza Tu Camino</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===========================  MY STORY  =========================== -->
+  <section class="block" id="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="portrait">
+          <!-- TO ADD MARU'S PHOTO: replace the .frame block below with:
+               <img src="your-photo.jpg" alt="Maru Arocha" style="aspect-ratio:4/5;border-radius:18px;object-fit:cover;box-shadow:0 18px 40px var(--shadow)"> -->
+          <div class="frame">
+            <span class="mono">MA</span>
+            <small>Maru Arocha</small>
+          </div>
+          <span class="badge">
+            <span data-lang="en">Life Coach &amp; Mentor</span><span data-lang="es">Coach de Vida y Mentora</span>
+          </span>
+        </div>
+        <div class="story-text">
+          <span class="eyebrow"><span data-lang="en">My Story</span><span data-lang="es">Mi Historia</span></span>
+          <h2><span data-lang="en">Get to know me</span><span data-lang="es">Conóceme</span></h2>
+
+          <div data-lang="en">
+            <p>I am Maria Eugenia Garcia Villalobos Haddad, proud to be Mexican with Lebanese roots that have deeply shaped my life. The blend of these two cultures taught me the value of family, resilience, and the quiet strength of being true to who we are.</p>
+            <p>Over the years, my own journey of growth led me to a heartfelt purpose: walking beside others as they design and elevate their lives. Through coaching and mentorship, I create warm, safe spaces where people feel seen, heard, and inspired to become the fullest version of themselves.</p>
+            <p>It would be my honor to accompany you on your path.</p>
+          </div>
+          <div data-lang="es">
+            <p>Soy María Eugenia García Villalobos Haddad, orgullosamente mexicana con raíces libanesas que han marcado profundamente mi vida. La mezcla de estas dos culturas me enseñó el valor de la familia, la resiliencia y la fuerza serena de ser fieles a quienes somos.</p>
+            <p>A lo largo de los años, mi propio camino de crecimiento me llevó a un propósito muy sentido: acompañar a otras personas mientras diseñan y elevan su vida. A través del coaching y la mentoría, creo espacios cálidos y seguros donde las personas se sienten vistas, escuchadas e inspiradas para convertirse en su mejor versión.</p>
+            <p>Sería un honor acompañarte en tu camino.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================  PROJECTS  =========================== -->
+  <section class="block alt" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span data-lang="en">Projects</span><span data-lang="es">Proyectos</span></span>
+        <h2><span data-lang="en">Ways we can work together</span><span data-lang="es">Maneras de trabajar juntas</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-2">
+        <!-- Project 1 -->
+        <div class="card">
+          <span class="kicker"><span data-lang="en">Group Coaching</span><span data-lang="es">Coaching de Grupo</span></span>
+          <h3><span data-lang="en">Upgrade Your Life</span><span data-lang="es">Renueva Tu Vida</span></h3>
+          <p data-lang="en">Many times, all we truly need is a safe space to be seen and heard — a place to pause, reflect, and reconnect with who we really are. In these intimate group sessions, we explore the tools and perspectives that help you rise, grow, and step into a more vibrant chapter of your life.</p>
+          <p data-lang="es">Muchas veces, lo único que realmente necesitamos es un espacio seguro para ser vistos y escuchados — un lugar para pausar, reflexionar y reconectar con quienes verdaderamente somos. En estas sesiones íntimas de grupo, exploramos las herramientas y perspectivas que te ayudan a crecer y dar el siguiente paso hacia un capítulo más pleno de tu vida.</p>
+          <div class="pills">
+            <span class="pill">👥 <span data-lang="en">4–6 per group</span><span data-lang="es">4–6 por grupo</span></span>
+            <span class="pill">🗓️ <span data-lang="en">Monthly</span><span data-lang="es">Mensual</span></span>
+            <span class="pill">⏱️ 120 min</span>
+            <span class="pill">📍 <span data-lang="en">In person</span><span data-lang="es">Presencial</span></span>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="card">
+          <span class="kicker"><span data-lang="en">1-on-1 Coaching</span><span data-lang="es">Coaching Individual</span></span>
+          <h3><span data-lang="en">Design Your Life</span><span data-lang="es">Diseña Tu Vida</span></h3>
+          <p data-lang="en">Just as a house often needs changes to adapt to the different stages of our lives, so do we. Through personalized one-on-one sessions, we gently redesign the spaces of your life — your habits, relationships, and dreams — so they truly fit the person you are becoming.</p>
+          <p data-lang="es">Así como una casa muchas veces necesita cambios para adaptarse a las distintas etapas de nuestra vida, nosotros también. A través de sesiones individuales y personalizadas, rediseñamos con cariño los espacios de tu vida — tus hábitos, relaciones y sueños — para que se ajusten verdaderamente a la persona en la que te estás convirtiendo.</p>
+          <div class="pills">
+            <span class="pill">👤 <span data-lang="en">One-on-one</span><span data-lang="es">Individual</span></span>
+            <span class="pill">⏱️ 45–90 min</span>
+            <span class="pill">💻 <span data-lang="en">Online</span><span data-lang="es">En línea</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================  COURSES  =========================== -->
+  <section class="block" id="courses">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span data-lang="en">Courses</span><span data-lang="es">Cursos</span></span>
+        <h2><span data-lang="en">Learn &amp; grow</span><span data-lang="es">Aprende y crece</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <span class="kicker"><span data-lang="en">Course</span><span data-lang="es">Curso</span></span>
+          <h3><span data-lang="en">Setting Your Boundaries</span><span data-lang="es">Poniendo Límites</span></h3>
+          <p data-lang="en">A nurturing course on learning to honor yourself by setting healthy, loving boundaries — so you can protect your energy, deepen your relationships, and say a wholehearted yes to what truly matters.</p>
+          <p data-lang="es">Un curso amoroso para aprender a honrarte a ti misma estableciendo límites sanos y cariñosos — para proteger tu energía, profundizar tus relaciones y decir un sí pleno a lo que de verdad importa.</p>
+        </div>
+        <div class="card soon">
+          <h3><span data-lang="en">More coming soon</span><span data-lang="es">Próximamente más</span></h3>
+          <p data-lang="en">New courses are on the way. ✨</p>
+          <p data-lang="es">Nuevos cursos en camino. ✨</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================  BLOG & TALKS  =========================== -->
+  <section class="block alt" id="blog">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span data-lang="en">Blog &amp; Talks</span><span data-lang="es">Blog y Charlas</span></span>
+        <h2><span data-lang="en">Words &amp; gatherings</span><span data-lang="es">Palabras y encuentros</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="blog-list">
+        <a class="blog-item" href="#">
+          <span class="tag"><span data-lang="en">Article</span><span data-lang="es">Artículo</span></span>
+          <h3><span data-lang="en">Flowing with Life</span><span data-lang="es">Fluyendo con la Vida</span></h3>
+          <span class="arrow">→</span>
+        </a>
+        <a class="blog-item" href="#">
+          <span class="tag talk"><span data-lang="en">Talk</span><span data-lang="es">Charla</span></span>
+          <h3><span data-lang="en">Between Two Lives (Book Presentation)</span><span data-lang="es">Entre Dos Vidas (Presentación de Libro)</span></h3>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================  CONTACT  =========================== -->
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></span>
+        <h2><span data-lang="en">Let's connect</span><span data-lang="es">Conectemos</span></h2>
+        <div class="divider"></div>
+      </div>
+      <p class="lead">
+        <span data-lang="en">Ready to design and elevate your life? I'd love to hear from you. Reach out and let's begin.</span>
+        <span data-lang="es">¿Lista para diseñar y elevar tu vida? Me encantaría saber de ti. Escríbeme y comencemos.</span>
+      </p>
+      <a class="email-btn" href="mailto:lifedesigner@arochaacademy.com">lifedesigner@arochaacademy.com</a>
+      <div class="socials">
+        <!-- Add real links by replacing the "#" with your profile address -->
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.01A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.4 8.75 21 11 21 14v7h-4v-6.2c0-1.48-.03-3.39-2.06-3.39-2.07 0-2.39 1.61-2.39 3.28V21H9z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================  FOOTER  =========================== -->
+  <footer>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 7 4 11 4 15a8 8 0 0016 0c0-4-3-8-8-13z"/></svg>
+      Arocha Academy
+    </div>
+    <p class="tagline">
+      <span data-lang="en">Designed with heart, to help you design your life.</span>
+      <span data-lang="es">Hecho con el corazón, para ayudarte a diseñar tu vida.</span>
+    </p>
+    <small>© 2026 Arocha Academy · Maru Arocha</small>
+  </footer>
+
+  <!-- ===========================  LANGUAGE TOGGLE SCRIPT  =========================== -->
+  <script>
+    (function () {
+      var body = document.body;
+      function setLang(lang) {
+        body.classList.remove('lang-en', 'lang-es');
+        body.classList.add('lang-' + lang);
+        document.documentElement.lang = lang;
+        var btns = document.querySelectorAll('.lang-btn');
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].classList.toggle('active', btns[i].getAttribute('data-set-lang') === lang);
+        }
+        try { localStorage.setItem('aa-lang', lang); } catch (e) {}
+      }
+      var btns = document.querySelectorAll('.lang-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          setLang(this.getAttribute('data-set-lang'));
+        });
+      }
+      var saved = null;
+      try { saved = localStorage.getItem('aa-lang'); } catch (e) {}
+      setLang(saved || 'en');
+    })();
+  </script>
+
+</body>
+</html>

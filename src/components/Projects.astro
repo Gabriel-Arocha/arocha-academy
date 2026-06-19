@@ -1,0 +1,46 @@
+---
+import { toParagraphs } from '../i18n/utils';
+
+interface Item {
+  kicker: string;
+  title: string;
+  body: string;
+  pills: string[];
+}
+
+interface Props {
+  projects: { eyebrow: string; heading: string; items: Item[] };
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="block alt" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      {projects.eyebrow && <span class="eyebrow">{projects.eyebrow}</span>}
+      {projects.heading && <h2>{projects.heading}</h2>}
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      {
+        projects.items.map((item) => (
+          <div class="card">
+            {item.kicker && <span class="kicker">{item.kicker}</span>}
+            <h3>{item.title}</h3>
+            {toParagraphs(item.body).map((p) => (
+              <p>{p}</p>
+            ))}
+            {item.pills && item.pills.length > 0 && (
+              <div class="pills">
+                {item.pills.map((pill) => (
+                  <span class="pill">{pill}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

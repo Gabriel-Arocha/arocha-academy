@@ -1,0 +1,19 @@
+---
+// Decap CMS dashboard — bypasses i18n routing by living in src/pages/
+// The CMS reads its settings from /admin/config.yml (served from public/)
+export const prerender = true;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Arocha Academy — Panel de Administración</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.7.0/dist/decap-cms.js"></script>
+  </body>
+</html>

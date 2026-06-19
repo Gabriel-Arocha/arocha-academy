@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/ui';
+import { useTranslations, otherLang } from '../i18n/utils';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  lang: Lang;
+  site: CollectionEntry<'site'>['data'];
+  altLangUrl: string;
+  title?: string;
+  description?: string;
+}
+
+const { lang, site, altLangUrl, title, description } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = title ?? site.seo.title;
+const pageDesc = description ?? site.seo.description;
+const altCode = otherLang(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
+    {Astro.site && (
+      <link rel="alternate" hreflang={altCode} href={new URL(altLangUrl, Astro.site).href} />
+    )}
+
+    <!-- Fonts: elegant serif for headings + friendly sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Netlify Identity: powers Maru's login at /admin and the email invite link -->
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Password gate: redirect unauthenticated visitors before any content paints -->
+    <script is:inline>
+      (function () {
+        var path = window.location.pathname;
+        if (path.startsWith('/password') || path.startsWith('/admin')) return;
+        if (localStorage.getItem('aa_auth') !== 'granted') {
+          window.location.replace('/password?next=' + encodeURIComponent(path));
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t('skip')}</a>
+    <Header lang={lang} site={site} altLangUrl={altLangUrl} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} site={site} />
+
+    <!-- If Maru clicks the email invitation, send her to the admin dashboard. -->
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function (user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function () {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

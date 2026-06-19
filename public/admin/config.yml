@@ -1,0 +1,269 @@
+# =====================================================================
+#  Decap CMS — control panel settings for Arocha Academy
+#  Docs: https://decapcms.org/docs/
+#  You normally only edit this file if you add a brand-new section.
+# =====================================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Lets you preview the dashboard on your own computer with `npx decap-server`.
+local_backend: true
+
+# The dashboard buttons/menus appear in Spanish.
+locale: es
+
+# Uploaded images are stored here and shown on the website at /uploads/...
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+logo_url: /favicon.svg
+
+collections:
+  # ===================================================================
+  #  WEBSITE TEXT — the homepage, one screen per language
+  # ===================================================================
+  - name: "site"
+    label: "Textos del Sitio"
+    description: "Aquí editas todos los textos de la página principal."
+    editor:
+      preview: false
+    files:
+      # ----------------------------- SPANISH -----------------------------
+      - name: "home_es"
+        label: "Página de Inicio (Español)"
+        file: "src/content/site/es.json"
+        fields:
+          - label: "Buscadores (SEO)"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Título de la pestaña", name: "title", widget: "string" }
+              - { label: "Descripción para Google", name: "description", widget: "text" }
+          - label: "Portada (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Texto pequeño de arriba", name: "eyebrow", widget: "string", required: false }
+              - { label: "Título grande", name: "title", widget: "string" }
+              - { label: "Frase / lema", name: "tagline", widget: "string", required: false }
+              - { label: "Texto del botón", name: "cta", widget: "string", required: false }
+          - label: "Mi Historia"
+            name: "story"
+            widget: "object"
+            fields:
+              - { label: "Etiqueta de sección", name: "eyebrow", widget: "string", required: false }
+              - { label: "Encabezado", name: "heading", widget: "string", required: false }
+              - { label: "Foto de Maru (opcional)", name: "portraitImage", widget: "image", required: false, hint: "Si no subes una foto, se muestra un recuadro elegante con las iniciales." }
+              - { label: "Insignia bajo la foto", name: "portraitBadge", widget: "string", required: false }
+              - { label: "Nombre / firma", name: "signature", widget: "string", required: false }
+              - { label: "Tu historia", name: "body", widget: "text", hint: "Deja un renglón en blanco entre cada párrafo." }
+          - label: "Proyectos"
+            name: "projects"
+            widget: "object"
+            fields:
+              - { label: "Etiqueta de sección", name: "eyebrow", widget: "string", required: false }
+              - { label: "Encabezado", name: "heading", widget: "string", required: false }
+              - label: "Tarjetas de proyectos"
+                name: "items"
+                widget: "list"
+                label_singular: "Proyecto"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Categoría", name: "kicker", widget: "string", required: false }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Descripción", name: "body", widget: "text", hint: "Deja un renglón en blanco entre párrafos." }
+                  - label: "Datos (etiquetas)"
+                    name: "pills"
+                    widget: "list"
+                    required: false
+                    field: { label: "Dato", name: "pill", widget: "string" }
+          - label: "Cursos"
+            name: "courses"
+            widget: "object"
+            fields:
+              - { label: "Etiqueta de sección", name: "eyebrow", widget: "string", required: false }
+              - { label: "Encabezado", name: "heading", widget: "string", required: false }
+              - label: "Cursos"
+                name: "items"
+                widget: "list"
+                label_singular: "Curso"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Categoría", name: "kicker", widget: "string", required: false }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Descripción", name: "body", widget: "text", required: false }
+              - { label: "¿Mostrar tarjeta 'Próximamente'?", name: "showComingSoon", widget: "boolean", default: true }
+              - { label: "Título de 'Próximamente'", name: "comingSoonTitle", widget: "string", required: false }
+              - { label: "Texto de 'Próximamente'", name: "comingSoonBody", widget: "string", required: false }
+          - label: "Sección Blog y Charlas"
+            name: "blog"
+            widget: "object"
+            fields:
+              - { label: "Etiqueta de sección", name: "eyebrow", widget: "string", required: false }
+              - { label: "Encabezado", name: "heading", widget: "string", required: false }
+              - { label: "Texto 'Leer más'", name: "readMore", widget: "string", required: false }
+          - label: "Contacto"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Etiqueta de sección", name: "eyebrow", widget: "string", required: false }
+              - { label: "Encabezado", name: "heading", widget: "string", required: false }
+              - { label: "Mensaje de invitación", name: "lead", widget: "text", required: false }
+              - { label: "Correo electrónico", name: "email", widget: "string" }
+              - { label: "Instagram (enlace)", name: "instagram", widget: "string", required: false }
+              - { label: "Facebook (enlace)", name: "facebook", widget: "string", required: false }
+              - { label: "LinkedIn (enlace)", name: "linkedin", widget: "string", required: false }
+          - label: "Pie de página"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Frase del pie", name: "tagline", widget: "string", required: false }
+
+      # ----------------------------- ENGLISH -----------------------------
+      - name: "home_en"
+        label: "Home Page (English)"
+        file: "src/content/site/en.json"
+        fields:
+          - label: "Search engines (SEO)"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Browser tab title", name: "title", widget: "string" }
+              - { label: "Google description", name: "description", widget: "text" }
+          - label: "Hero (top banner)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Small text above", name: "eyebrow", widget: "string", required: false }
+              - { label: "Big title", name: "title", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string", required: false }
+              - { label: "Button text", name: "cta", widget: "string", required: false }
+          - label: "My Story"
+            name: "story"
+            widget: "object"
+            fields:
+              - { label: "Section label", name: "eyebrow", widget: "string", required: false }
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - { label: "Photo of Maru (optional)", name: "portraitImage", widget: "image", required: false, hint: "If you don't add a photo, an elegant monogram is shown instead." }
+              - { label: "Badge under the photo", name: "portraitBadge", widget: "string", required: false }
+              - { label: "Name / signature", name: "signature", widget: "string", required: false }
+              - { label: "Your story", name: "body", widget: "text", hint: "Leave a blank line between paragraphs." }
+          - label: "Projects"
+            name: "projects"
+            widget: "object"
+            fields:
+              - { label: "Section label", name: "eyebrow", widget: "string", required: false }
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - label: "Project cards"
+                name: "items"
+                widget: "list"
+                label_singular: "Project"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Category", name: "kicker", widget: "string", required: false }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "body", widget: "text", hint: "Leave a blank line between paragraphs." }
+                  - label: "Details (tags)"
+                    name: "pills"
+                    widget: "list"
+                    required: false
+                    field: { label: "Detail", name: "pill", widget: "string" }
+          - label: "Courses"
+            name: "courses"
+            widget: "object"
+            fields:
+              - { label: "Section label", name: "eyebrow", widget: "string", required: false }
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - label: "Courses"
+                name: "items"
+                widget: "list"
+                label_singular: "Course"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Category", name: "kicker", widget: "string", required: false }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "body", widget: "text", required: false }
+              - { label: "Show 'coming soon' card?", name: "showComingSoon", widget: "boolean", default: true }
+              - { label: "'Coming soon' title", name: "comingSoonTitle", widget: "string", required: false }
+              - { label: "'Coming soon' text", name: "comingSoonBody", widget: "string", required: false }
+          - label: "Blog & Talks section"
+            name: "blog"
+            widget: "object"
+            fields:
+              - { label: "Section label", name: "eyebrow", widget: "string", required: false }
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - { label: "'Read more' text", name: "readMore", widget: "string", required: false }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Section label", name: "eyebrow", widget: "string", required: false }
+              - { label: "Heading", name: "heading", widget: "string", required: false }
+              - { label: "Invitation message", name: "lead", widget: "text", required: false }
+              - { label: "Email address", name: "email", widget: "string" }
+              - { label: "Instagram (link)", name: "instagram", widget: "string", required: false }
+              - { label: "Facebook (link)", name: "facebook", widget: "string", required: false }
+              - { label: "LinkedIn (link)", name: "linkedin", widget: "string", required: false }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Footer tagline", name: "tagline", widget: "string", required: false }
+
+  # ===================================================================
+  #  BLOG & TALKS — Spanish
+  # ===================================================================
+  - name: "blog_es"
+    label: "Blog y Charlas (Español)"
+    label_singular: "Publicación"
+    description: "Artículos y charlas en español."
+    folder: "src/content/blog/es"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - label: "Tipo"
+        name: "tag"
+        widget: "select"
+        default: "article"
+        options:
+          - { label: "Artículo", value: "article" }
+          - { label: "Charla", value: "talk" }
+      - { label: "Resumen breve", name: "summary", widget: "text", required: false }
+      - { label: "Imagen de portada", name: "coverImage", widget: "image", required: false }
+      - { label: "Clave de traducción (opcional)", name: "translationKey", widget: "string", required: false, hint: "Escribe la misma palabra aquí y en la versión en inglés para enlazar las dos (por ejemplo: mi-articulo)." }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  # ===================================================================
+  #  BLOG & TALKS — English
+  # ===================================================================
+  - name: "blog_en"
+    label: "Blog & Talks (English)"
+    label_singular: "Post"
+    description: "Articles and talks in English."
+    folder: "src/content/blog/en"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - label: "Type"
+        name: "tag"
+        widget: "select"
+        default: "article"
+        options:
+          - { label: "Article", value: "article" }
+          - { label: "Talk", value: "talk" }
+      - { label: "Short summary", name: "summary", widget: "text", required: false }
+      - { label: "Cover image", name: "coverImage", widget: "image", required: false }
+      - { label: "Translation key (optional)", name: "translationKey", widget: "string", required: false, hint: "Use the same word here and on the Spanish version to link the two (for example: my-article)." }
+      - { label: "Content", name: "body", widget: "markdown" }

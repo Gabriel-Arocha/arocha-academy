@@ -1,0 +1,53 @@
+---
+import { toParagraphs } from '../i18n/utils';
+
+interface Item {
+  kicker: string;
+  title: string;
+  body: string;
+}
+
+interface Props {
+  courses: {
+    eyebrow: string;
+    heading: string;
+    items: Item[];
+    showComingSoon: boolean;
+    comingSoonTitle: string;
+    comingSoonBody: string;
+  };
+}
+
+const { courses } = Astro.props;
+---
+
+<section class="block" id="courses">
+  <div class="wrap">
+    <div class="section-head">
+      {courses.eyebrow && <span class="eyebrow">{courses.eyebrow}</span>}
+      {courses.heading && <h2>{courses.heading}</h2>}
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      {
+        courses.items.map((item) => (
+          <div class="card">
+            {item.kicker && <span class="kicker">{item.kicker}</span>}
+            <h3>{item.title}</h3>
+            {toParagraphs(item.body).map((p) => (
+              <p>{p}</p>
+            ))}
+          </div>
+        ))
+      }
+      {
+        courses.showComingSoon && (
+          <div class="card soon">
+            <h3>{courses.comingSoonTitle}</h3>
+            {courses.comingSoonBody && <p>{courses.comingSoonBody}</p>}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
