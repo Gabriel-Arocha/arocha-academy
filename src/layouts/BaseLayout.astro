@@ -47,9 +47,6 @@ const altCode = otherLang(lang);
       rel="stylesheet"
     />
 
-    <!-- Netlify Identity: powers Maru's login at /admin and the email invite link -->
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
     <!-- Password gate: redirect unauthenticated visitors before any content paints -->
     <script is:inline>
       (function () {
@@ -68,18 +65,5 @@ const altCode = otherLang(lang);
       <slot />
     </main>
     <Footer lang={lang} site={site} />
-
-    <!-- If Maru clicks the email invitation, send her to the admin dashboard. -->
-    <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', function (user) {
-          if (!user) {
-            window.netlifyIdentity.on('login', function () {
-              document.location.href = '/admin/';
-            });
-          }
-        });
-      }
-    </script>
   </body>
 </html>

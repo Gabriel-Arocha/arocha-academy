@@ -5,7 +5,8 @@
 # =====================================================================
 
 backend:
-  name: git-gateway
+  name: github
+  repo: Gabriel-Arocha/arocha-academy
   branch: main
 
 # Lets you preview the dashboard on your own computer with `npx decap-server`.
