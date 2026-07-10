@@ -1,6 +1,6 @@
 # Arocha Academy
 
-Bilingual (English / Spanish) website for **Maru Arocha**, life coach & mentor.
+Bilingual (English / Spanish) website for a life coach & mentor.
 
 Built so a **non-technical owner** can edit all text, images, and blog posts from a
 friendly dashboard — no code, no IDE, no deploys by hand.
@@ -14,8 +14,7 @@ friendly dashboard — no code, no IDE, no deploys by hand.
 | **i18n** | `/en/` and `/es/` routes; `/` redirects to `/en/` |
 | **Styling** | Hand-written CSS ported from the original design prototype (`prototype-reference.html`) |
 
-> The end-user guide for Maru is in **[`MOM_INSTRUCTIONS.md`](./MOM_INSTRUCTIONS.md)**
-> (written in plain language, English + Spanish). Give her that file — not this one.
+> The end-user guide is in **[`MOM_INSTRUCTIONS.md`](./MOM_INSTRUCTIONS.md)**
 
 ---
 
@@ -72,7 +71,7 @@ git init
 git add .
 git commit -m "Initial site"
 git branch -M main
-git remote add origin https://github.com/<you>/arocha-academy.git
+git remote add origin https://github.com/Gabriel-Arocha/arocha-academy.git
 git push -u origin main
 ```
 
@@ -83,7 +82,7 @@ git push -u origin main
    publish: `dist`). Click **Deploy**.
 
 ### 3. Turn on logins for the editor (Netlify Identity + Git Gateway)
-This is what lets Maru log in with just an email and password.
+This is what lets user log in with just an email and password.
 
 1. In your site → **Integrations / Identity** → **Enable Identity**.
    *(On newer Netlify UIs this may appear as a setup card; enable it.)*
@@ -92,12 +91,12 @@ This is what lets Maru log in with just an email and password.
 3. Identity → **Services → Git Gateway** → **Enable Git Gateway**.
    This grants the dashboard permission to save changes to your GitHub repo.
 
-### 4. Invite Maru
+### 4. Invite USER
 1. Identity → **Invite users** → enter her email address.
 2. She receives an email, clicks the link, sets a password, and is sent to `/admin`.
    (The redirect is already wired up in `BaseLayout.astro`.)
 
-That's it. She now edits at `https://<your-site>/admin`.
+That's it. She now edits at `https://arochaacademy/admin`.
 
 ### 5. Custom domain (optional)
 Add `arochaacademy.com` under **Domain management** in Netlify, then update:
@@ -170,4 +169,4 @@ break starts a new paragraph. The blog post body is full Markdown.
   to `config.yml`. It was intentionally left off to keep her flow as simple as
   possible (edit → Publish → live).
 
-Generated with [Claude Code](https://claude.com/claude-code)
+Enhanced with [Claude Code](https://claude.com/claude-code)
