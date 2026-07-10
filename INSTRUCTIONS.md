@@ -5,9 +5,9 @@
 
 ---
 
-> **Your website address:** `https://__________________`
-> **Your editing page:** that same address with **`/admin`** added at the end.
-> *(Your son will fill in the exact address for you.)*
+> **Your website address:** `https://arochaacademy.netlify.app`
+> **Your editing page:** that same address with **`/admin`** added at the end,
+> i.e. `https://arochaacademy.netlify.app/admin`
 
 ---
 
@@ -24,14 +24,19 @@ fixed. So relax and explore.
 
 ## 1. How to log in
 
+You log in using a **GitHub** account (a free account your son will set up for you,
+or help you create). Think of it like a Google account, just for this purpose — you
+won't need to know anything technical about it.
+
 1. Open your internet browser (Chrome, Safari, Edge…).
 2. Go to your website address and add **`/admin`** at the end.
-   For example: `arochaacademy.com/admin`
-3. The first time, you'll receive an **email invitation**. Open it and click the
-   button to **create your password**. Choose a password you'll remember.
-4. After that, just enter your **email and password** and click **Log in**.
+   For example: `arochaacademy.netlify.app/admin`
+3. Click the button that says **"Iniciar sesión con GitHub"** (Log in with GitHub).
+4. Enter the GitHub email and password your son gave you, and click **Log in**.
+   Your browser will usually remember you after the first time.
 
 > Tip: Save the `/admin` page in your favorites/bookmarks so it's easy to find.
+> If you ever forget your GitHub password, your son can reset it for you.
 
 ---
 
@@ -129,9 +134,9 @@ help you in a few minutes.
 
 ---
 
-> **La dirección de tu sitio web:** `https://__________________`
-> **Tu página para editar:** esa misma dirección con **`/admin`** al final.
-> *(Tu hijo escribirá aquí la dirección exacta.)*
+> **La dirección de tu sitio web:** `https://arochaacademy.netlify.app`
+> **Tu página para editar:** esa misma dirección con **`/admin`** al final,
+> es decir `https://arochaacademy.netlify.app/admin`
 
 ---
 
@@ -149,15 +154,19 @@ que respira tranquila y explora con confianza.
 
 ## 1. Cómo entrar
 
+Entras usando una cuenta de **GitHub** (una cuenta gratuita que tu hijo creará para
+ti, o te ayudará a crear). Piénsalo como una cuenta de Google, solo que para esto —
+no necesitas saber nada técnico sobre ella.
+
 1. Abre tu navegador de internet (Chrome, Safari, Edge…).
 2. Ve a la dirección de tu sitio web y agrega **`/admin`** al final.
-   Por ejemplo: `arochaacademy.com/admin`
-3. La primera vez recibirás una **invitación por correo**. Ábrela y haz clic en el
-   botón para **crear tu contraseña**. Elige una contraseña que recuerdes.
-4. Después de eso, solo escribe tu **correo y contraseña** y haz clic en
-   **Iniciar sesión**.
+   Por ejemplo: `arochaacademy.netlify.app/admin`
+3. Haz clic en el botón que dice **"Iniciar sesión con GitHub"**.
+4. Escribe el correo y la contraseña de GitHub que te dio tu hijo, y haz clic en
+   **Iniciar sesión**. Normalmente el navegador te recordará después de la primera vez.
 
 > Consejo: Guarda la página `/admin` en tus favoritos para encontrarla fácil.
+> Si olvidas tu contraseña de GitHub, tu hijo puede restablecerla por ti.
 
 ---
 

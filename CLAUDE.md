@@ -10,7 +10,7 @@ every word, image, and blog post from a friendly dashboard, with no code or manu
 
 - **Framework:** Astro 5, static output (`output: 'static'`), zero JS shipped by default.
 - **CMS:** Decap CMS at `/admin` (Git-based), Spanish-language dashboard UI.
-- **Auth (editor):** Netlify Identity + Git Gateway.
+- **Auth (editor):** Decap CMS GitHub backend (editor logs in with a GitHub account).
 - **Hosting:** Netlify — auto-rebuilds `dist/` on every commit the CMS pushes.
 - **i18n:** `/en/` and `/es/` routes; bare `/` redirects to `/en/`.
 - **Styling:** hand-written CSS ported from `prototype-reference.html`.
@@ -47,8 +47,8 @@ src/content/
 - `src/i18n/ui.ts` — the few fixed "chrome" strings (nav, buttons); NOT editable in the CMS.
 - `src/i18n/utils.ts` — language detection from URL, date formatting, `toParagraphs`
   (blank-line-separated text -> `<p>` tags), blog-id helpers.
-- `src/layouts/BaseLayout.astro` — `<head>`, fonts, Netlify Identity widget, and the
-  client-side password gate. Renders `Header` + `<slot>` + `Footer`.
+- `src/layouts/BaseLayout.astro` — `<head>`, fonts, and the client-side password gate.
+  Renders `Header` + `<slot>` + `Footer`.
 - `src/components/` — `Hero`, `Story`, `Projects`, `Courses`, `BlogTalks`, `Contact`,
   `Header`, `Footer`. These receive content as props and render it.
 - `src/pages/[lang]/index.astro` — homepage; `[lang]/blog/index.astro` + `[slug].astro` — blog.
@@ -70,6 +70,6 @@ src/content/
 
 ## Audience-specific docs (do not overwrite)
 
-- `README.md` — full developer setup + Netlify/Identity deployment steps.
-- `MOM_INSTRUCTIONS.md` — plain-language guide for Maru (the non-technical editor).
+- `README.md` — full developer setup + Netlify/GitHub OAuth deployment steps.
+- `INSTRUCTIONS.md` — plain-language guide for Maru (the non-technical editor).
   Keep it jargon-free (EN + ES).
