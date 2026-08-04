@@ -15,7 +15,7 @@
     "portraitImage": "",
     "portraitBadge": "Life Coach & Mentor",
     "signature": "Maru Arocha",
-    "body": "I am Maria Eugenia Garcia Villalobos Haddad, proud to be Mexican with Lebanese roots that have deeply shaped my life. I am grateful to have come into this world surrounded by love and companionship, and yet my life—like everyone's—has also been filled with challenges and obstacles.\nWhen I migrated to another country, I adopted the surname Arocha as my identity, since it is the first surname of my children. For more than 30 years, people have known me as Maru Arocha: mother of three young adults, Spanish teacher, and a woman committed to social service and helping others.\nI have always been passionate about human relationships and communication. My curiosity to better understand myself led me to take courses and workshops that positively contributed to my personal and professional growth, especially in my work with children.\nThe death of my father, and everything that followed, led me on a journey to understand family dynamics, the stories we tell ourselves, and the conscious and unconscious behaviors that shape our lives.\nArocha Academy was born as a portal of openness and vision. With the responsibility and purpose of offering mentorship and coaching to help design and elevate our lives."
+    "body": "I am Maria Eugenia Garcia Villalobos Haddad, proud to be Mexican with Lebanese roots that have deeply shaped my life. I am grateful to have come into this world surrounded by love and companionship, and yet my life - like everyone's - has also been filled with challenges and obstacles.\nWhen I migrated to another country, I adopted the surname Arocha as my identity, since it is the first surname of my children. For more than 30 years, people have known me as Maru Arocha: mother of three young adults, Spanish teacher, and a woman committed to social service and helping others.\nI have always been passionate about human relationships and communication. My curiosity to better understand myself led me to take courses and workshops that positively contributed to my personal and professional growth, especially in my work with children.\nThe death of my father, and everything that followed, led me on a journey to understand family dynamics, the stories we tell ourselves, and the conscious and unconscious behaviors that shape our lives.\nArocha Academy was born as a portal of openness and vision. With the responsibility and purpose of offering mentorship and coaching to help design and elevate our lives."
   },
   "projects": {
     "eyebrow": "Projects",
@@ -25,13 +25,22 @@
         "kicker": "Group Coaching",
         "title": "Upgrade Your Life",
         "body": "Many times, all we truly need is a safe space to be seen and heard. An experience of perspective and growth that allows us to connect with ourselves and with others. Your presence matters, and today more than ever, the world needs more empathy and human connection. Our stories matter.",
-        "pills": ["4–6 participants", "Monthly", "120 min", "In person"]
+        "pills": [
+          "4 - 6 participants",
+          "Monthly",
+          "120 min",
+          "In person"
+        ]
       },
       {
         "kicker": "1-on-1 Coaching",
         "title": "Design Your Life",
-        "body": "Just as a house often needs changes to adapt to the different stages of our lives—the arrival of a baby, a growing family, an empty nest, new ventures, and many other transitions—our being and essence also need redesigning.\nIt is important to pause, observe ourselves, and recognize that we are going through change. To look inward, refresh our inner spaces, embrace new perspectives, and allow ourselves to evolve.\nFrom that place, we begin to redesign your life. Because often, it is not about transforming everything, but about discovering a new perspective and making a few small changes that can unlock enormous potential…\nRemember: you can always redesign yourself.",
-        "pills": ["Individual", "45–90 min", "Online"]
+        "body": "Just as a house often needs changes to adapt to the different stages of our lives - the arrival of a baby, a growing family, an empty nest, new ventures, and many other transitions - our being and essence also need redesigning.\nIt is important to pause, observe ourselves, and recognize that we are going through change. To look inward, refresh our inner spaces, embrace new perspectives, and allow ourselves to evolve.\nFrom that place, we begin to redesign your life. Because often, it is not about transforming everything, but about discovering a new perspective and making a few small changes that can unlock enormous potential…\nRemember: you can always redesign yourself.",
+        "pills": [
+          "Individual",
+          "45 - 90 min",
+          "Online"
+        ]
       }
     ]
   },
