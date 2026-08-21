@@ -3,7 +3,7 @@
 Bilingual (English / Spanish) website for a life coach & mentor.
 
 Built so a **non-technical owner** can edit all text, images, and blog posts from a
-friendly dashboard — no code, no IDE, no deploys by hand.
+friendly dashboard.
 
 | | |
 |---|---|
@@ -147,7 +147,7 @@ Add `arochaacademy.com` under **Domain management** in Netlify, then update:
 3. Render them in a component under `src/components/`.
 4. Add matching fields under **both** `home_en` and `home_es` in `public/admin/config.yml`.
 
-**Link an EN post to its ES translation** — give both files the same `translationKey`
+**Link an EN post to its ES translation**: give both files the same `translationKey`
 in their frontmatter. The language toggle on a post then jumps to its translation
 (otherwise it falls back to that language's blog index).
 
