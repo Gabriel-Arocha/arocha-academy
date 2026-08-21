@@ -151,10 +151,10 @@ Add `arochaacademy.com` under **Domain management** in Netlify, then update:
 in their frontmatter. The language toggle on a post then jumps to its translation
 (otherwise it falls back to that language's blog index).
 
-**Paragraphs** — in the JSON text fields (story, project/course descriptions), a line
+**Paragraphs**: in the JSON text fields (story, project/course descriptions), a line
 break starts a new paragraph. The blog post body is full Markdown.
 
-**Colors / fonts** — all theme tokens are CSS variables at the top of
+**Colors / fonts**: all theme tokens are CSS variables at the top of
 `src/styles/global.css`. Change them there to restyle the whole site.
 
 ---
