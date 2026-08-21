@@ -91,8 +91,7 @@ via GitHub instead of email/password.
    - Register the app, then generate a **Client secret**. Copy the Client ID + secret.
 2. In Netlify: **Site configuration → Access & security → OAuth** → **Install provider**
    → **GitHub** → paste in the Client ID and secret.
-3. `public/admin/config.yml` already points `backend.name` to `github` with this repo —
-   no further config changes needed.
+3. `public/admin/config.yml` already points `backend.name` to `github` with this repo
 
 ### 4. Give the editor access
 1. Add her as a **collaborator** on the GitHub repo: **Settings → Collaborators →
